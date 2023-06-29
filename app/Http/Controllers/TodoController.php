@@ -9,6 +9,17 @@ use App\Models\Todo;
 class TodoController extends Controller
 {
 
+    public function index()
+    {
+
+        $todos = Todo::all();
+
+
+
+        return view('welcome')->with('todos', $todos);
+
+    }
+
     public function create(Request $request)
     {
 
@@ -19,6 +30,7 @@ class TodoController extends Controller
 
         $todo->save();
 
+        return redirect()->route('home')->with('success', 'todo added successfully!');
 
     }
 

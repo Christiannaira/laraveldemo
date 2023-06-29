@@ -13,11 +13,21 @@
 <div class="container m-5 p-5 shadow rounded">
     <h1 class="fw-bold">Todo List</h1>
 
+    @if(session('success'))
+    <div class="alert alert-success">{{session('success')}}</div>
+    @endif
+
     <form method="post" action="{{route('createtodo')}}">
         @csrf
         <input name="content" type="text" class="form-control" required>
         <button type="submit" class="mt-3 btn btn-primary">Add</button>
     </form>
+
+    <ul class="list-group mt-5">
+        @foreach($todos as $todo)
+        <li class="list-group-item">{{$todo->content}}</li>
+        @endforeach
+    </ul>
 </div>
 
 </body>

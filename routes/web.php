@@ -15,15 +15,6 @@ use App\Http\Controllers\TodoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/test', function () {
-
-    $username = 'bryl';
-
-    return view('test')->with('username', $username);
-});
+Route::get('/', [TodoController::class, 'index'])->name('home');
 
 Route::post('/createtodo', [TodoController::class, 'create'])->name('createtodo');
