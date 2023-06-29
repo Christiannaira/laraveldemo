@@ -26,4 +26,4 @@ Route::get('/test', function () {
     return view('test')->with('username', $username);
 });
 
-Route::get('/createtodo', [TodoController::class, 'create']);
+Route::post('/createtodo', [TodoController::class, 'create'])->name('createtodo');

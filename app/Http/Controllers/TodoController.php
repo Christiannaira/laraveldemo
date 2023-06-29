@@ -9,12 +9,12 @@ use App\Models\Todo;
 class TodoController extends Controller
 {
 
-    public function create()
+    public function create(Request $request)
     {
 
         $todo = new Todo();
 
-        $todo->content = "This is my second todo!";
+        $todo->content = $request->content;
         $todo->status = "pending";
 
         $todo->save();
