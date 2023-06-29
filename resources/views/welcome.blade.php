@@ -25,7 +25,18 @@
 
     <ul class="list-group mt-5">
         @foreach($todos as $todo)
-        <li class="list-group-item">{{$todo->content}}</li>
+        <li class="list-group-item">
+            
+            @if($todo->status === 'pending')
+            <span class="badge bg-primary">Pending</span>
+            @endif
+
+            @if($todo->status === 'complete')
+            <span class="badge bg-success">Complete</span>
+            @endif
+
+            {{$todo->content}}
+        </li>
         @endforeach
     </ul>
 </div>
